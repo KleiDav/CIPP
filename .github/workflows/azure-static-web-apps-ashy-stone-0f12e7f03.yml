@@ -28,6 +28,11 @@ jobs:
           output_location: "" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
 
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+      
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
